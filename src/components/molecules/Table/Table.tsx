@@ -7,16 +7,24 @@ const Table = ({
   selectedTable,
   selectedMode,
   tableElements,
-  handleSelectTableElement
+  handleSelectTableElement,
+  ...props
 }: TableProps): JSX.Element => (
-  <Container>
+  <Container {...props}>
     <Image src={selectedTable?.imageUrl} alt={selectedTable?.name} />
     {tableElements.map(({ id, x, y, type, element }) => (
       <Wrapper key={id} x={x} y={y} type={type}>
         {element ? (
-          <Image src={element} alt="Element" />
+          <Image
+            src={element}
+            alt={`element-${type}-${id}`}
+            data-testid="handle-select-table-element"
+          />
         ) : type === selectedMode ? (
-          <IconButton onClick={() => handleSelectTableElement(id, type)}>
+          <IconButton
+            onClick={() => handleSelectTableElement(id, type)}
+            data-testid={`handle-select-icon-${type}-${id}`}
+          >
             <Icon name="add" width={40} height={40} />
           </IconButton>
         ) : null}
