@@ -5,7 +5,7 @@ import { JSX } from 'react/jsx-runtime'
 import Table from './Table'
 import { SelectedModeType } from './Table.types'
 
-jest.mock('src/components/bosons', () => ({
+jest.mock('src/components/bosons/Icons', () => ({
   AddIcon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg {...props} data-testid="mock-add-icon" />
   )
@@ -20,6 +20,13 @@ const mockTableElements = [
     y: 40,
     type: 'meals' as SelectedModeType,
     element: null
+  },
+  {
+    id: '3',
+    x: 30,
+    y: 40,
+    type: 'meals' as SelectedModeType,
+    element: 'imageUrl2'
   },
   {
     id: '1',
@@ -53,7 +60,7 @@ describe('molecules/Table', () => {
     expect(selectedTableImage).toHaveAttribute('src', 'table1.png')
   })
 
-  test('molecules/Table - render table element', () => {
+  test('molecules/Table - render plate on table', () => {
     render(
       <Table
         selectedTable={mockSelectedTable}
@@ -66,6 +73,21 @@ describe('molecules/Table', () => {
     const tableElementImage = screen.getByAltText('element-plates-1')
     expect(tableElementImage).toBeInTheDocument()
     expect(tableElementImage).toHaveAttribute('src', 'imageUrl1')
+  })
+
+  test('molecules/Table - render meal on table', () => {
+    render(
+      <Table
+        selectedTable={mockSelectedTable}
+        selectedMode="meals"
+        tableElements={mockTableElements}
+        handleSelectTableElement={mockHandleSelectTableElement}
+      />
+    )
+
+    const tableElementImage = screen.getByAltText('element-meals-3')
+    expect(tableElementImage).toBeInTheDocument()
+    expect(tableElementImage).toHaveAttribute('src', 'imageUrl2')
   })
 
   test('molecules/Table - render add icon button', () => {

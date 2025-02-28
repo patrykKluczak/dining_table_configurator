@@ -11,7 +11,11 @@ const Table = ({
   ...props
 }: TableProps): JSX.Element => (
   <Container {...props}>
-    <Image src={selectedTable?.imageUrl} alt={selectedTable?.name} />
+    <Image
+      src={selectedTable?.imageUrl}
+      alt={selectedTable?.name}
+      data-testid={`selected-table-${selectedTable?.name}`}
+    />
     {tableElements.map(({ id, x, y, type, element }) => (
       <Wrapper key={id} x={x} y={y} type={type}>
         {element ? (

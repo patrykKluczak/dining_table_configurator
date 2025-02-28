@@ -16,21 +16,48 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const fetchTablesData = async () => {
-    const response = await fetch('http://localhost:3001/tables')
-    const data = await response.json()
-    setTablesData(data)
+    try {
+      const response = await fetch('http://localhost:3001/tables')
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch tables data: ${response.statusText}`)
+      }
+
+      const data = await response.json()
+      setTablesData(data)
+    } catch (error) {
+      console.error('Error fetching tables data:', error)
+    }
   }
 
   const fetchPlatesData = async () => {
-    const response = await fetch('http://localhost:3001/plates')
-    const data = await response.json()
-    setPlatesData(data)
+    try {
+      const response = await fetch('http://localhost:3001/plates')
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch plates data: ${response.statusText}`)
+      }
+
+      const data = await response.json()
+      setPlatesData(data)
+    } catch (error) {
+      console.error('Error fetching plates data:', error)
+    }
   }
 
   const fetchMealsData = async () => {
-    const response = await fetch('http://localhost:3001/meals')
-    const data = await response.json()
-    setMealsData(data)
+    try {
+      const response = await fetch('http://localhost:3001/meals')
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch plates data: ${response.statusText}`)
+      }
+
+      const data = await response.json()
+      setMealsData(data)
+    } catch (error) {
+      console.error('Error fetching meals data:', error)
+    }
   }
 
   const fetchData = async () => {
