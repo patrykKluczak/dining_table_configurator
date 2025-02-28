@@ -4,7 +4,7 @@ import { Text } from 'src/components/atoms'
 export const MenuContainer = styled.div`
   height: 100dvh;
   min-width: 228px;
-  background-color: #f4f4f4;
+  background-color: ${({ theme }) => theme.colors.grey10};
   padding-top: 24px;
   display: flex;
   flex-direction: column;
@@ -27,10 +27,10 @@ export const MenuItemHeader = styled.div`
   gap: 6px;
   height: 128px;
   transition: background-color 0.2s ease-in-out;
-  background-color: #f4f4f4;
+  background-color: ${({ theme }) => theme.colors.grey10};
 
   &:hover {
-    background-color: #dbdbdb;
+    background-color: ${({ theme }) => theme.colors.grey12};
   }
 `
 
@@ -46,7 +46,7 @@ export const SelectedItem = styled.div`
 `
 
 export const Item = styled.button`
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.transparent1};
   border: none;
   width: 120px;
   transition: transform 0.3s;
@@ -60,7 +60,7 @@ export const Item = styled.button`
   }
 
   &:disabled {
-    color: ${(props) => props.theme.colors.grey9};
+    color: ${({ theme }) => theme.colors.grey9};
     cursor: not-allowed;
   }
 
@@ -81,7 +81,7 @@ export const SubMenu = styled.div`
   height: 128px;
   top: 0;
   transition: left 0.3s;
-  background-color: #dbdbdb;
+  background-color: ${({ theme }) => theme.colors.grey12};
   padding: 16px;
   border-radius: 0px 3px 3px 0px;
   z-index: -1;
@@ -102,9 +102,9 @@ export const SubMenu = styled.div`
 export const BackButton = styled.button`
   margin-top: auto;
   padding: 10px 20px;
-  background-color: transparent;
-  color: #000;
+  background-color: ${({ theme }) => theme.colors.transparent1};
+  color: ${({ theme }) => theme.colors.black12};
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes.textBase};
 `

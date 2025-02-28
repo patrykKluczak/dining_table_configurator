@@ -1,7 +1,7 @@
+import { JSX } from 'react'
 import { useDataContext } from 'src/context'
 import { LoadingScreen } from 'src/components/molecules'
 import Home from './Home'
-import { JSX } from 'react'
 
 const HomeLoader = (): JSX.Element => {
   const { tablesData, platesData, mealsData, isLoading } = useDataContext()

@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-
 import { SVGProps } from 'react'
 import { JSX } from 'react/jsx-runtime'
 import Table from './Table'
