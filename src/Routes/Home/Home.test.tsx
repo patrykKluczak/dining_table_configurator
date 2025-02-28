@@ -1,9 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import Home from './Home'
-import { ThemeProvider } from 'styled-components'
-import { theme } from 'src/components/quarks'
 import { SVGProps } from 'react'
 import { JSX } from 'react/jsx-runtime'
+import { ThemeProvider } from 'styled-components'
+import Home from './Home'
+import { theme } from 'src/components/quarks'
 
 jest.mock('src/components/bosons/Icons', () => ({
   AddIcon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (

@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react'
-
-import Icon from './Icon'
 import { SVGProps } from 'react'
 import { JSX } from 'react/jsx-runtime'
+import Icon from './Icon'
 
 jest.mock('src/components/bosons', () => ({
   AddIcon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (

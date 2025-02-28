@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { Text } from '../../atoms'
+import { Text } from 'src/components/atoms'
 
 const pulseAnimation = keyframes`
   0% {
@@ -21,10 +21,10 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100dvh;
-  background-color: #f7f7f7;
+  background-color: ${({ theme }) => theme.colors.grey9};
 `
 
 export const LoadingText = styled(Text)`
   animation: ${pulseAnimation} 2s ease-in-out infinite;
-  font-size: ${(props) => props.theme.fontSizes.text4Xl};
+  font-size: ${({ theme }) => theme.fontSizes.text4Xl};
 `

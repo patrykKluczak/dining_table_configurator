@@ -1,5 +1,5 @@
+import { JSX } from 'react'
 import { StyledText } from './Text.styles'
-
 import type { TextProps } from './Text.types'
 
 const Text = ({
@@ -11,7 +11,7 @@ const Text = ({
   uppercase,
   children,
   ...props
-}: TextProps) => (
+}: TextProps): JSX.Element => (
   <StyledText
     id={id}
     as={as}
